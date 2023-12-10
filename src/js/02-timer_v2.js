@@ -9,7 +9,7 @@ const selectors = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
 };
-const inputPicker = document.querySelector('#datetime-picker');
+// const inputPicker = document.querySelector('#datetime-picker');
 
 
 const options = {
