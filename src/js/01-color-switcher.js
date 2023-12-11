@@ -14,8 +14,8 @@ function getRandomHexColor() {
       }
 
 buttonStart.addEventListener('click', () => {
-    btnStart.disabled = true;
-    btnStop.disabled = false;
+    buttonStart.disabled = true;
+    buttonStop.disabled = false;
   
     interval = setInterval(() => {
       body.style.backgroundColor = getRandomHexColor();
@@ -24,29 +24,6 @@ buttonStart.addEventListener('click', () => {
 
 buttonStop.addEventListener('click', () => {
     clearInterval(interval);
-    btnStart.disabled = false;
-    btnStop.disabled = true; 
+    buttonStart.disabled = false;
+    buttonStop.disabled = true; 
 });
-
-
-
-// function getRandomHexColor() {
-//     return `#${Math.floor(Math.random() * 16777215)
-//       .toString(16)
-//       .padStart(6, 0)}`;
-//   }
-  
-//   btnStart.addEventListener('click', () => {
-//     btnStart.disabled = true;
-//     btnStop.disabled = false;
-  
-//     timerId = setInterval(() => {
-//       body.style.backgroundColor = getRandomHexColor();
-//     }, 1000);
-//   });
-  
-//   btnStop.addEventListener('click', () => {
-//     clearInterval(timerId);
-//     btnStart.disabled = false;
-//     btnStop.disabled = true;
-//   });
