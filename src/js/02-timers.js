@@ -9,8 +9,6 @@ const selectors = {
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
 };
-const inputPicker = document.querySelector('#datetime-picker');
-
 
 const options = {
   enableTime: true,
@@ -19,11 +17,10 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const today = new Date();
-// console.log(selectedDates);
     if (selectedDates[0] - today <= 0) {
       console.log('false');
       selectors.button.disabled = true;
-      return;
+      return window.alert("Please choose a date in the future");
     } else {
       selectors.button.disabled = false;
     }
@@ -40,7 +37,7 @@ const options = {
 flatpickr('#datetime-picker', options);
 
 function timer(selectDate, id) {
-  const today = new Date();
+  const today = Date.now();
   const delta = selectDate - today;
 
   if (delta <= 0) {
@@ -57,7 +54,7 @@ function timer(selectDate, id) {
     selectors.minutes.textContent = minutes;
     selectors.seconds.textContent = seconds;
   }
- console.log(createTimer);
+  console.log(createTimer);
   function addLeadingZero(value) {
     return String(value).padStart(2, '0');
   }
