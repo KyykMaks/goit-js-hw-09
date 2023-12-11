@@ -1,4 +1,5 @@
 import flatpickr from 'flatpickr';
+import Notiflix from 'notiflix';
 // Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
 
@@ -17,12 +18,10 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     const today = new Date();
-    if (selectedDates[0] - today <= 0) {
-      console.log('false');
-      selectors.button.disabled = true;
-      return window.alert("Please choose a date in the future");
-    } else {
+    if (selectedDates[0] > today) {
       selectors.button.disabled = false;
+    } else {
+      Notiflix.Notify.failure('Please choose a date in the future');
     }
 
     selectors.button.addEventListener('click', () => {
